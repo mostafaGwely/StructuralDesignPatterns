@@ -11,11 +11,15 @@ import com.mostafapackage.composite.Shape;
 import com.mostafapackage.facade.Message;
 import com.mostafapackage.facade.NotificationServer;
 import com.mostafapackage.facade.NotificationService;
+import com.mostafapackage.flyweight.Point;
+import com.mostafapackage.flyweight.PointIconFactory;
+import com.mostafapackage.flyweight.PointService;
 
 public class Main {
 
     public static void main(String[] args) {
-        var notiService = new NotificationService();
-        notiService.send("hello world", "target1");
+        var service = new PointService(new PointIconFactory());
+        for(Point point: service.getPoints())
+            point.draw();
     }
 }
